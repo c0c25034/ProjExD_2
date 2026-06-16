@@ -15,6 +15,11 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 
 def check_bound(rct: pg.Rect) -> tuple[bool, bool]:
+    """
+    引数：こうかとんRectか爆弾Rect
+    戻り値：タプル（横方向の判定結果, 縦方向の判定結果）
+    画面内ならTrue、画面外ならFalse
+    """
     yoko, tate = True, True
     if rct.left < 0 or WIDTH < rct.right:
         yoko = False
@@ -28,7 +33,6 @@ def gameover(screen: pg.Surface) -> None:
     font1 = pg.font.Font(None, 80)
     txt = font1.render("Game Over", True, (255, 255, 255))
     gm_sc.blit(txt, (400, 300))
-    nk_img = pg.image.load("fig/8.png")
     nk_img = pg.image.load("fig/8.png")
     gm_sc.blit(nk_img, (300, 300))
     gm_sc.blit(nk_img, (800, 300))
