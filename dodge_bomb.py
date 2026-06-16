@@ -34,8 +34,8 @@ def gameover(screen: pg.Surface) -> None:
     txt = font1.render("Game Over", True, (255, 255, 255))
     gm_sc.blit(txt, (400, 300))
     nk_img = pg.image.load("fig/8.png")
-    gm_sc.blit(nk_img, (300, 300))
-    gm_sc.blit(nk_img, (800, 300))
+    for x in (300, 800):
+        gm_sc.blit(nk_img, (x, 300))
     screen.blit(gm_sc, (0, 0))
     pg.display.update()
     time.sleep(5)
